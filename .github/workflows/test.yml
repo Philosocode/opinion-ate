@@ -1,0 +1,23 @@
+# Workflow Name
+name: Test
+# Run whenever code is pushed to the server
+# Test PR branches and merges to `main`
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-16.04
+    # Steps for this job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci # Ensure dependency versions match lockfile
+      - name: Unit Tests
+        run: npm test --watchAll=false # Run once
+      - name: E2E Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run start
+          wait-on: "http://localhost:3000"
+      
