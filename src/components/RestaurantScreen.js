@@ -4,8 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import RestaurantList from "./RestaurantList";
 
 const RestaurantScreen = () => (
-  <Card> {/* Outline */}
-    <CardContent> {/* Padding */}
+  <Card>
+    <CardContent>
       <Typography variant="h5">Restaurants</Typography>
       <RestaurantList />
     </CardContent>
